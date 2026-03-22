@@ -13,35 +13,46 @@ A robust, asynchronous notification engine built with **Laravel 10**, **MySQL**,
 
 ### Installation
 1. **Clone the repository:**
+```bash
    git clone [https://github.com/kripa-123/notification-system-laravel.git](https://github.com/kripa-123/notification-system-laravel.git)
    cd notification-system-laravel
+```
 
 2. **Install dependencies:**
+```bash
     composer install
+```
 
 3. **Environment Setup:**
+```bash
     cp .env.example .env
     php artisan key:generate
+```
 
 4. **Database & Migrations:**
+```bash
     php artisan migrate --seed
+```
 
 ## Configuration
 Required .env Variables
+```env
 DB_CONNECTION=mysql
 DB_DATABASE=notification_db
 
 QUEUE_CONNECTION=redis
-CACHE_STORE=redis    
+CACHE_STORE=redis   
+``` 
 
 ## Running the System
-Start the Queue Worker:
-php artisan queue:work
+```bash
+    php artisan queue:work
+```
 
 ## Testing:
-    The system includes a full suite of Feature and Unit tests covering rate limiting, job retries, and API integrity.
-
+```bash
     php artisan test  
+```
 
 ## API Documentation 
 
