@@ -66,7 +66,7 @@ php artisan queue:work
         "message": "Notification queued successfully",
         "id": "a15c3db1-8e91-4712-a304-9cb41fa9aae2"
     }
-
+```
 2. **Get Notification History (with Filtering)**
 
     GET /api/notifications
@@ -82,6 +82,7 @@ php artisan queue:work
     Example Request:
     GET /api/notifications?type=email&status=sent&user_id=1
 
+```json
     Response
     {
     "current_page": 1,
@@ -130,12 +131,13 @@ php artisan queue:work
     "to": 1,
     "total": 1
     }
+```
 
 3. **Get Notification Summary**
     Returns cached global statistics of notification statuses to monitor system health without heavy database overhead.
 
     GET /api/notifications/summary
-
+    ```json
     Response
 
     {
@@ -144,7 +146,7 @@ php artisan queue:work
         "pending_queue": 3,
         "last_updated": "2026-03-22 10:32:35"
     }
-
+    ```
 
 ## Architectural Decisions
 1. Service-Oriented Architecture: Logic is decoupled into NotificationService to keep Controllers thin and maintainable.
