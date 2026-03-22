@@ -26,37 +26,40 @@ A robust, asynchronous notification engine built with **Laravel 10**, **MySQL**,
 4. **Database & Migrations:**
     php artisan migrate --seed
 
-    ## Configuration
-    Required .env Variables
-    DB_CONNECTION=mysql
-    DB_DATABASE=notification_db
+## Configuration
+Required .env Variables
+DB_CONNECTION=mysql
+DB_DATABASE=notification_db
 
-    QUEUE_CONNECTION=redis
-    CACHE_STORE=redis    
+QUEUE_CONNECTION=redis
+CACHE_STORE=redis    
 
-    ## Running the System
-    Start the Queue Worker:php artisan queue:work
+## Running the System
+Start the Queue Worker:
+php artisan queue:work
 
-5. **Testing:** 
+## Testing:
     The system includes a full suite of Feature and Unit tests covering rate limiting, job retries, and API integrity.
 
     php artisan test  
 
 ## API Documentation 
 
-1. **Create Notification**
-POST /api/notifications
-Payload:
-    {
-        "user_id": 4,
-        "tenant_id":3,
-        "type": "sms",
-        "payload": {
-            "title": "SMS",
-            "body": "The is test form sms.",
-            "force_fail": true
+    1. **Create Notification**
+    POST /api/notifications
+
+```json
+    Payload:
+        {
+            "user_id": 4,
+            "tenant_id":3,
+            "type": "sms",
+            "payload": {
+                "title": "SMS",
+                "body": "The is test form sms.",
+                "force_fail": true
+            }
         }
-    }
 
     Response
     {
@@ -126,20 +129,21 @@ Payload:
     "prev_page_url": null,
     "to": 1,
     "total": 1
-}
+    }
 
 3. **Get Notification Summary**
-Returns cached global statistics of notification statuses to monitor system health without heavy database overhead.
+    Returns cached global statistics of notification statuses to monitor system health without heavy database overhead.
 
-GET /api/notifications/summary
+    GET /api/notifications/summary
 
-Response
-{
-    "total_sent": 29,
-    "total_failed": 2,
-    "pending_queue": 3,
-    "last_updated": "2026-03-22 10:32:35"
-}
+    Response
+
+    {
+        "total_sent": 29,
+        "total_failed": 2,
+        "pending_queue": 3,
+        "last_updated": "2026-03-22 10:32:35"
+    }
 
 
 ## Architectural Decisions
