@@ -14,8 +14,7 @@ A robust, asynchronous notification engine built with **Laravel 10**, **MySQL**,
 ### Installation
 1. **Clone the repository:**
 ```bash
-   git clone [https://github.com/kripa-123/notification-system-laravel.git](https://github.com/kripa-123/notification-system-laravel.git)
-   cd notification-system-laravel
+   git clone https://github.com/kripa-123/notification-system-laravel.git
 ```
 
 2. **Install dependencies:**
